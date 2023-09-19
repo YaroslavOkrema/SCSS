@@ -1,0 +1,68 @@
+// Comment
+
+$bgColor: #f1f1f1;
+$color: #cccccc;
+$blockWidth: 300px;
+$border: 2px solid silver; 
+$mainFontSize: 1.1em;
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@mixin font ($fontW: bold, $color: red) {
+    font-size: $mainFontSize;
+    font-weight: $fontW;
+    font-family: Arial, sans-serif;
+    color: $color;
+}
+
+@mixin padd($color, $padd...) {
+    padding: $padd;
+}
+
+.block:not(.first) {
+    @include padd(20px 40px 30px 50px);
+    background: $bgColor;
+    height: 200px;
+    border: $border;
+    width: $blockWidth;
+    margin-bottom: 20px;
+}
+
+#central__block {
+    padding: 30px;
+
+    ul {
+        list-style: none;
+        display: inline-block;
+    }
+
+    li {
+        float: left;
+        margin-right: 10px;
+
+        a {
+            @include font ($fontW: bold, $color:blue); 
+           // color: blue;
+        }
+    }
+
+    a {
+        @include font (light);
+        // color: $color;
+    }
+}
+
+// #central__block > ul {
+//    list-style: none;
+// }
+
+.first {
+    background: $bgColor;
+    border: $border;
+    width: $blockWidth;
+    height: 100px;
+    margin-bottom: 20px;
+}
