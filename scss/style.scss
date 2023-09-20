@@ -7,7 +7,16 @@
 }
 
 a {
-    @include link(#000, red, blue, green);
+    @include link(silver, red, blue, green);
+}
+
+#grid {
+    float: left;
+    width: 100%;
+
+   > div {
+        @include grid(3, 15%);
+    }
 }
 
 .block:not(.first) {
@@ -29,7 +38,8 @@ a {
 
     li {
         float: left;
-        margin-right: 10px;
+        width: (100% / 3);
+        //margin-right: 10px;
 
         a {
             @include font ($fontW: bold, $color:blue); 
