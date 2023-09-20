@@ -1,29 +1,17 @@
-// Comment
-
-$bgColor: #f1f1f1;
-$color: #cccccc;
-$blockWidth: 300px;
-$border: 2px solid silver; 
-$mainFontSize: 1.1em;
+@import "variables";
+@import "mixins";
 
 * {
     padding: 0;
     margin: 0;
 }
 
-@mixin font ($fontW: bold, $color: red) {
-    font-size: $mainFontSize;
-    font-weight: $fontW;
-    font-family: Arial, sans-serif;
-    color: $color;
-}
-
-@mixin padd($color, $padd...) {
-    padding: $padd;
+a {
+    @include link(#000, red, blue, green);
 }
 
 .block:not(.first) {
-    @include padd(20px 40px 30px 50px);
+    @include padd(20px, 40px, 30px, 50px);
     background: $bgColor;
     height: 200px;
     border: $border;
@@ -46,6 +34,10 @@ $mainFontSize: 1.1em;
         a {
             @include font ($fontW: bold, $color:blue); 
            // color: blue;
+
+           &:hover {
+             color: red;
+           }
         }
     }
 
