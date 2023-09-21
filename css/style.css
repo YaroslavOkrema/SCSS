@@ -26,7 +26,8 @@ a:visited {
   margin-right: 15%;
   margin-bottom: 15%;
   height: 150px;
-  width: 23.3333333333%;
+  width: 100%;
+  margin-right: 0;
 }
 #grid > div:not-child(:last-child) {
   margin-right: 0;

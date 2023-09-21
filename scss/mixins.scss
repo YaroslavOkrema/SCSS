@@ -9,9 +9,7 @@
         color: $active;
     }
 
-    &:visited {
-        color: $visited;
-    }
+    @content;
 }
 
 @mixin font ($fontW: bold, $color: red) {
@@ -31,7 +29,16 @@
     margin-right: $margin;
     margin-bottom: $margin;
     height: 150px;
-    width: ((100% - (($cols - 1) * $margin)) / $cols);
+
+    @if($cols >= 5) {
+        width: 100%;
+        margin-right: 0;
+    }
+    @else {
+        width: ((100% - (($cols - 1) * $margin)) / $cols);
+        margin-right: $margin;
+    }
+
 
     &:not-child(:last-child) {
         margin-right: 0;
