@@ -4,13 +4,26 @@ $bgColor: white;
 $color: #cccccc;
 $blockWidth: 30%;
 $border: 4px solid red;
+$mainFontSize: 1.1em;
 
 * {
   padding: 0;
   margin: 0;
 }
 
+@mixin font ($fontW, $color: red) {
+  font-size: $mainFontSize;
+  font-weight: $fontW;
+  font-family: Arial, sans-serif;
+  color: $color;
+}
+
+@mixin padd($color, $padd...) {
+  padding: $padd;
+}
+
 .block:not(.first) {
+  @include padd(blue, 20px 30px 40px 50px);
   background: $bgColor;
   height: 200px;
   border: $border;
@@ -31,12 +44,14 @@ $border: 4px solid red;
     margin-right: 10px;
 
     a {
-      color: blue;
+      @include font(bold, blue);
+      //color: blue;
     }
   }
 
   a {
-    color: $color;
+    @include font(light);
+    //color: $color;
   }
 
   span {
